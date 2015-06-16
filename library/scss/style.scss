@@ -1,8 +1,8 @@
 /*! Made with Bones: http://themble.com/bones :) */
 
 /******************************************************************
-Site Name:
-Author:
+Site Name: bones-gulp
+Author: James Bradach
 
 Stylesheet: Main Stylesheet
 
@@ -24,7 +24,7 @@ the whole project.
 *********************/
 
 // normalize: http://necolas.github.io/normalize.css/
-@import "partials/normalize";
+//@import "partials/normalize";
 
 // Sass variables
 @import "partials/variables";
@@ -39,7 +39,7 @@ the whole project.
 @import "partials/mixins";
 
 // the grid
-@import "partials/grid";
+//@import "partials/grid";
 
 /*********************
 IMPORTING MODULES
@@ -50,13 +50,13 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 *********************/
 
 // alert boxes
-@import "modules/alerts";
+//@import "modules/alerts";
 
 // buttons
-@import "modules/buttons";
+//@import "modules/buttons";
 
 // forms (inputs & labels)
-@import "modules/forms";
+//@import "modules/forms";
 
 /*********************
 BASE (MOBILE) SIZE
@@ -74,12 +74,12 @@ This is for devices like the Galaxy Note or something that's
 larger than an iPhone but smaller than a tablet. Let's call them
 tweeners.
 *********************/
-@media only screen and (min-width: 481px) {
+//@media only screen and (min-width: 481px) {
 
 	// styles in 481up.scss
-	@import "breakpoints/481up";
+//	@import "breakpoints/481up";
 
-} // end of media query
+//} // end of media query
 
 /*********************
 TABLET & SMALLER LAPTOPS
@@ -87,12 +87,12 @@ This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
-@media only screen and (min-width: 768px) {
+//@media only screen and (min-width: 768px) {
 
 	// styles in 768up.scss
-	@import "breakpoints/768up";
+//	@import "breakpoints/768up";
 
-} // end of media query
+//} // end of media query
 
 /*********************
 DESKTOP
@@ -100,23 +100,23 @@ This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
-@media only screen and (min-width: 1030px) {
+//@media only screen and (min-width: 1030px) {
 
 	// styles in 1030up.scss
-	@import "breakpoints/1030up";
+//	@import "breakpoints/1030up";
 
-} // end of media query
+//} // end of media query
 
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 *********************/
-@media only screen and (min-width: 1240px) {
+//@media only screen and (min-width: 1240px) {
 
 	// styles in 1240up.scss
-	@import "breakpoints/1240up";
+//	@import "breakpoints/1240up";
 
-} // end of media query
+//} // end of media query
 
 /*********************
 RETINA (2x RESOLUTION DEVICES)
@@ -124,14 +124,14 @@ This applies to the retina iPhone (4s) and iPad (2,3) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 *********************/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-device-pixel-ratio: 1.5) {
+//@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+//       only screen and (min--moz-device-pixel-ratio: 1.5),
+//       only screen and (min-device-pixel-ratio: 1.5) {
 
 	// styles in 2x.scss
-	@import "breakpoints/2x";
+//	@import "breakpoints/2x";
 
-} // end of media query
+//} // end of media query
 
 /*********************
 PRINT STYLESHEET
@@ -139,9 +139,14 @@ Feel free to customize this. Remember to add things that won't make
 sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 *********************/
-@media print {
-
+//@media print {
 	// styles in print.scss
-	@import "partials/print";
+//	@import "partials/print";
 
+//}
+
+body {
+  padding-top: 80px;
 }
+body.admin-bar .navbar-fixed-top { top: 28px !important; }
+

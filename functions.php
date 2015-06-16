@@ -14,6 +14,8 @@ require_once( 'library/bones.php' );
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 // require_once( 'library/admin.php' );
 
+require_once( get_template_directory() . '/library/wp_bootstrap_navwalker.php' );
+
 /*********************
 LAUNCH BONES
 Let's get everything up and running.
@@ -238,10 +240,10 @@ external fonts. If you're using Google Fonts, you
 can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
-function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
-}
+//function bones_fonts() {
+//  wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+//}
 
-add_action('wp_enqueue_scripts', 'bones_fonts');
+//add_action('wp_enqueue_scripts', 'bones_fonts');
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

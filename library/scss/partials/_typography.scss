@@ -40,6 +40,31 @@ FONT FACE (IN YOUR FACE)
   }
 */
 
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 400;
+  src: local('RobotoDraft'), local('RobotoDraft-Regular'), local('Roboto-Regular'), url(../fonts/RobotoDraftRegular.woff2) format('woff2'), url(../fonts/RobotoDraftRegular.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 500;
+  src: local('RobotoDraft Medium'), local('RobotoDraft-Medium'), local('Roboto-Medium'), url(../fonts/RobotoDraftMedium.woff2) format('woff2'), url(../fonts/RobotoDraftMedium.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 700;
+  src: local('RobotoDraft Bold'), local('RobotoDraft-Bold'), local('Roboto-Bold'), url(../fonts/RobotoDraftBold.woff2) format('woff2'), url(../fonts/RobotoDraftBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: italic;
+  font-weight: 400;
+  src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(../fonts/RobotoDraftItalic.woff2) format('woff2'), url(../fonts/RobotoDraftItalic.woff) format('woff');
+}
+
 
 /*
 The following is based of Typebase:
@@ -49,14 +74,14 @@ I've edited it a bit, but it's a nice starting point.
 
 
 // font stacks
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif:        "RobotoDraft", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 /*
  i imported this one in the functions file so bones would look sweet.
  don't forget to remove it for your site.
 */
-$lato:              'Lato', $sans-serif;
+$robotodraft:              'RobotoDraft', $sans-serif;
 
 /*
 some nice typographical defaults

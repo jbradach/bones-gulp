@@ -29,9 +29,9 @@ need.
 
 function bones_head_cleanup() {
 	// category feeds
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
-	// remove_action( 'wp_head', 'feed_links', 2 );
+	 remove_action( 'wp_head', 'feed_links', 2 );
 	// EditURI link
 	remove_action( 'wp_head', 'rsd_link' );
 	// windows live writer
@@ -131,7 +131,16 @@ function bones_scripts_and_styles() {
 		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
 		// ie-only style sheet
-		wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+		//wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+
+                wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/library/css/bootstrap.css', array(), 'all');
+                wp_register_style( 'material-css', get_stylesheet_directory_uri() . '/library/css/material.css', array(), 'all');
+                wp_register_style( 'roboto-css', get_stylesheet_directory_uri() . '/library/css/roboto.css', array(), 'all');
+                wp_register_style( 'ripples-css', get_stylesheet_directory_uri() . '/library/css/ripples.css', array(), 'all');
+
+                wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/library/js/bootstrap.js', array('jquery'), '',false);
+                wp_register_script( 'ripples-js', get_stylesheet_directory_uri() . '/library/js/ripples.js', array('jquery'), '',true);
+                wp_register_script( 'material-js', get_stylesheet_directory_uri() . '/library/js/material.js', array('jquery'), '', true);
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -146,6 +155,11 @@ function bones_scripts_and_styles() {
 		wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );
 
+                wp_enqueue_style( 'bootstrap-css');
+                wp_enqueue_style( 'material-css');
+                wp_enqueue_style( 'roboto-css');
+                wp_enqueue_style( 'ripples-css');
+
 		$wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
 		/*
@@ -154,8 +168,10 @@ function bones_scripts_and_styles() {
 		and your site will load faster.
 		*/
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'bones-js' );
-
+                wp_enqueue_script( 'bootstrap-js' );
+                wp_enqueue_script( 'material-js' );
+                wp_enqueue_script( 'ripples-js' );
+                wp_enqueue_script( 'bones-js' );
 	}
 }
 
@@ -209,7 +225,7 @@ function bones_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+			'primary' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
 			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
 		)
 	);

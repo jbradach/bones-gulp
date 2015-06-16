@@ -1,36 +1,16 @@
 <!doctype html>
-
-<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-
+<html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="utf-8">
-
 		<?php // force Internet Explorer to use the latest rendering engine available ?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title><?php wp_title(''); ?></title>
-
-		<?php // mobile meta (hooray!) ?>
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-		<!--[if IE]>
-			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-		<![endif]-->
-		<?php // or, set /favicon.ico for IE10 win ?>
-		<meta name="msapplication-TileColor" content="#f01d4f">
-		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
-            <meta name="theme-color" content="#121212">
-
-		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
 		<?php // end of wordpress head ?>
@@ -40,38 +20,39 @@
 
 	</head>
 
-	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+	<body <?php body_class(); ?>>
 
-		<div id="container">
+        <header id="masthead" class="site-header" role="banner">
+                <div class="site-branding container">
+                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+                </div><!-- .site-branding -->
+                <div class="clearfix"></div>
+                <div class="navbar navbar-material-#4caf50green navbar-fixed-top shadow-z-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+<?php wp_nav_menu( array( 'theme_location'    => 'primary',
+                          'menu_id'           => 'primary-menu',
+                          'menu_class'        => 'nav navbar-nav',
+                          'container'         => false,//div
+                          //'container_class'   => 'navbar-collapse collapse navbar-responsive-collapse',
+                          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                          'walker'            => new wp_bootstrap_navwalker()
+                          ) ); ?>
+                        <form class="navbar-form navbar-right">
+                            <input type="text" class="form-control col-lg-8" placeholder="Search">
+                        </form>
+                   </div><!-- navbar-collapse -->
+            </div><!-- #site-nav -->
 
-			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+        </header><!-- #masthead -->
 
-				<div id="inner-header" class="wrap cf">
-
-					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
-					<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-
-					<?php // if you'd like to use the site description you can un-comment it below ?>
-					<?php // bloginfo('description'); ?>
-
-
-					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php wp_nav_menu(array(
-    					         'container' => false,                           // remove nav container
-    					         'container_class' => 'menu cf',                 // class of container (should you choose to use it)
-    					         'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
-    					         'menu_class' => 'nav top-nav cf',               // adding custom nav class
-    					         'theme_location' => 'main-nav',                 // where it's located in the theme
-    					         'before' => '',                                 // before the menu
-        			               'after' => '',                                  // after the menu
-        			               'link_before' => '',                            // before each link
-        			               'link_after' => '',                             // after each link
-        			               'depth' => 0,                                   // limit the depth of the nav
-    					         'fallback_cb' => ''                             // fallback function (if there is one)
-						)); ?>
-
-					</nav>
-
-				</div>
-
-			</header>
+        <div id="content" class="site-content container-fluid">
+<?php  //             <div id="primary" class="content-area col-sm-12 col-md-9">?>

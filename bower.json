@@ -1,0 +1,24 @@
+{
+  "name": "bones-gulp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jbradach/bones-gulp",
+  "authors": [
+    "James Bradach <heythere@jamesbradach.com>"
+  ],
+  "license": "WTFPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "~0.3.0",
+    "bootstrap": "~3.3.4"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.4",
+    "bootstrap-material-design": "~0.3.0"
+  }
+}
